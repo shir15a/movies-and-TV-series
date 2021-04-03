@@ -27,12 +27,9 @@ function App() {
             <Route path = '/series' component = {Series}/>
             <Route path = '/search' component = {Search}/>
             <Route path = '/MyFav' component = {MyFav}/>
-
-
           </Switch>
         </Container>
       </div>
-
       <SimpleBottomNavigation />
     </BrowserRouter>
   );

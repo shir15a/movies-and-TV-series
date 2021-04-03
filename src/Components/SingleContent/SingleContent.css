@@ -1,0 +1,51 @@
+.media{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    padding: 5px;
+    margin: 5px 0;
+    background-color: #282c34;
+    border-radius: 10px;
+    /* font-family: 'Yanone Kaffeesatz', sans-serif; */
+    position: relative;
+}
+
+.media:hover{
+    background-color: white;
+    color: black;
+}
+
+.vote{
+    border: 1px solid transparent;
+    width: 20px;
+    height: 21px;
+    border-radius: 100%;
+    margin-left: 95%;
+    margin-top: -4%;
+    text-align: center;
+    z-index: 1;
+    font-size: medium;
+}
+
+.poster {
+    border-radius: 10px;
+}
+
+.title{
+    width: 100%;
+    text-align: center;
+    padding: 8px;
+}
+
+.sub-title{
+    display: flex;
+    justify-content: space-around;
+}
+
+
+
+@media (max-width: 550px){
+    .media{
+        width:46%;
+    }
+}

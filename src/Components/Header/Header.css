@@ -10,7 +10,7 @@
    padding-bottom: 15px;
    box-shadow: 0px 1px 5px whitesmoke;
    color: white;
-   z-index: 100;
+   z-index: 1;
    font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 

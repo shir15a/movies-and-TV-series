@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react';
 import SingleContent from '../../SingleContent/SingleContent';
+import './Trending.css'
 
 const REACT_APP_API_KEY = '1d3f8a1c0198093b711a7de4dd647d9e';
 
