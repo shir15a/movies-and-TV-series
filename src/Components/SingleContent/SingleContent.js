@@ -1,9 +1,12 @@
 import React from 'react'
+import { img_300, unavailable } from '../Config/Config'
 
 function SingleContent({ id, title, media_type, poster, date, vote_average }) {
     return (
         <div>
             {title}
+            <img src={poster ? `${img_300}/${poster}` : unavailable} alt={title} />
+            {date}
         </div>
     )
 }
