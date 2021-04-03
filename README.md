@@ -1,9 +1,5 @@
-# Getting Started with Create React App
+# MOVIES AND TV SERIES
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## General information about my site
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
+* netlify link: [netlify] (https://movies-and-tv-series.netlify.app/ "https://movies-and-tv-series.netlify.app/")
