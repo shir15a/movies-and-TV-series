@@ -5,7 +5,7 @@ import './SingleContent.css'
 function SingleContent({ id, title, media_type, poster, date, vote_average }) {
     return (
         <div className='media'>
-            <span class="vote" style={{ backgroundColor: vote_average > 6 ? '#DC004E' : '#1976D2' }}>{vote_average}</span>
+            <span className="vote" style={{ backgroundColor: vote_average > 6 ? '#DC004E' : '#1976D2' }}>{vote_average}</span>
             <img className='poster' src={poster ? `${img_300}/${poster}` : unavailable} alt={title} />
             <b className='title'>{title}</b>
             <div className='sub-title'>

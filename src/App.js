@@ -22,11 +22,11 @@ function App() {
       <div className='app'>
         <Container>
           <Switch >
-            <Route path = '/' component = {Trending} exact />
-            <Route path = '/movies' component = {Movies}/>
-            <Route path = '/series' component = {Series}/>
-            <Route path = '/search' component = {Search}/>
-            <Route path = '/MyFav' component = {MyFav}/>
+            <Route path='/' component={Trending} exact />
+            <Route path='/movies' component={Movies} />
+            <Route path='/series' component={Series} />
+            <Route path='/search' component={Search} />
+            <Route path='/MyFav' component={MyFav} />
           </Switch>
         </Container>
       </div>
