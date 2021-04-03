@@ -11,31 +11,31 @@ function Movies() {
     const [content, setContent] = useState([]);
     const [numOfPages, setNumOfPages] = useState([]);
 
+    // const fetchMovies = async () => {
+    //     const response = await axios.get(
+    //         `https://api.themoviedb.org/3/discover/movie?api_key=${REACT_APP_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}`
+    //     );
+    //     setContent(response.data.results);
+    //     setNumOfPages(response.data.total_pages);
+    // };
 
-    const fetchMovies = async () => {
-        const response = await axios.get(
-            `https://api.themoviedb.org/3/discover/movie?api_key=${REACT_APP_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}`
-        );
-        setContent(response.data.results);
-        setNumOfPages(response.data.total_pages);
-    };
+    // useEffect(() => {
+    //     fetchMovies();
+    // }, [page]);
 
 
     useEffect(() => {
-        fetchMovies();
+        const moviesData = async () => {
+            let response = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${REACT_APP_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}`)
+            console.log(response.data);
+            setContent(response.data.results)
+            setNumOfPages(response.data.total_pages);
+        };
+        moviesData();
+        return () => {
+            setNumOfPages([]); 
+          };
     }, [page]);
-
-
-    // useEffect(() => {
-    //     const moviesData = async () => {
-    //         let response = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${REACT_APP_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}`)
-    //         console.log(response.data);
-    //         setContent(response.data.results)
-    //         console.log(response.data.total_pages);
-    //         setNumOfPages(response.data.total_pages);
-    //     };
-    //     moviesData();
-    // }, [page]);
 
     return (
         <div>
