@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import SingleContent from '../../SingleContent/SingleContent';
 import CustomPagination from '../../Pagination/CustomPagination'
 import Genres from '../../Genres/Genres'
+import useGenre from "../../Genres/UseGenre";
+
 
 const REACT_APP_API_KEY = '1d3f8a1c0198093b711a7de4dd647d9e';
 
@@ -13,11 +15,18 @@ function Movies() {
     const [numOfPages, setNumOfPages] = useState([]);
     const [selectedGenres, setSelectedGenres] = useState([]) //after select 
     const [genres, setGenres] = useState([])
+    const genreforURL = useGenre(selectedGenres);
+
+    // const useGenre = (selectedGenres) => {
+    //     if (selectedGenres.length > 1) return '';
+    //     const genreIds = selectedGenres.map((genre) => genre.id);
+    //     return genreIds.reduce((acc, curr) => acc + "," + curr, []);
+    // }
 
     useEffect(() => {
         const moviesData = async () => {
-            let response = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${REACT_APP_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}`)
-            console.log(response.data);
+            let response = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${REACT_APP_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreforURL}`)
+            console.log(response);
             setContent(response.data.results)
             setNumOfPages(response.data.total_pages);
         };
@@ -26,7 +35,9 @@ function Movies() {
             setNumOfPages({});
             // setNumOfPages([]); 
         };
-    }, [page]);
+    }, [page, genreforURL]);
+
+
 
     return (
         <div>
@@ -71,3 +82,5 @@ export default Movies
 // video: false
 // vote_average: 6.2
 // vote_count: 318
+
+
