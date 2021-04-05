@@ -52,7 +52,7 @@ function Movies() {
                 })}
             </div>
             {numOfPages > 1 && (
-                <CustomPagination setPage={setPage} numOfPages={numOfPages} />)}
+                <CustomPagination page={page} setPage={setPage} numOfPages={numOfPages} />)}
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect} from 'react';
 import Pagination from '@material-ui/lab/Pagination';
 import './CustomPagination.css'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core';
@@ -9,17 +9,27 @@ const darkTheme = createMuiTheme({
     },
 })
 
-function CustomPagination({ setPage, numOfPages = 15 }) {
+function CustomPagination({ page, setPage, numOfPages = 15 }) {
+
+    const[localPage, setLocalPage] = useState(page);
+
+    useEffect(() => {
+        setLocalPage(page)
+
+    }, [page])
+
 
     const handlePageChange = (event, value) => {
-        setPage(parseInt(value - 1));
+        console.log(value, 'value');
+        setLocalPage(value);
+        setPage(parseInt(value));
         window.scroll(0, 0);
     };
 
     return (
         <div className='pagination'>
             <ThemeProvider theme={darkTheme}>
-                <Pagination count={numOfPages} onChange={(e) => handlePageChange(e.target.value)} />
+                <Pagination page={localPage} count={numOfPages} onChange={handlePageChange} />
             </ThemeProvider>
         </div>
     )
