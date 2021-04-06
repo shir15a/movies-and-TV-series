@@ -44,7 +44,6 @@ export default function Search() {
         setContent(data.results)
         setNumOfPages(data.total_pages)
 
-
         // let response = await axios.get(`https://api.themoviedb.org/3/search${type ? 'tv' : 'movie'}?api_key=1d3f8a1c0198093b711a7de4dd647d9e&language=en-US&page=${page}&query=${search}&include_adult=false`)
         // // console.log(response.data.results);
         // const { data } = await ticketMaster.get(`/${type}.json`, {
@@ -61,17 +60,16 @@ export default function Search() {
 
     useEffect(() => {
         // window.scroll(0, 0);
-        if(search) fetchSearch();
-       
+        if (search) fetchSearch();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [type, page]);
 
-    console.log(search, 'search');
     return (
         <div>
             <span className="pageTitle">Search</span>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
-                <input onChange={(e) => setSearch(e.target.value)} style={{ width: '50%' }} type="text" id="search" placeholder='Search...' onChange={(e) => setSearch(e.target.value)}></input>
-                <button onClick={()=>fetchSearch()} id="searchBtn"><FontAwesomeIcon icon={faSearch} /></button>
+                <input onChange={(e) => setSearch(e.target.value)} style={{ width: '50%' }} type="text" id="search" placeholder='Search...' ></input>
+                <button onClick={() => fetchSearch()} id="searchBtn"><FontAwesomeIcon icon={faSearch} /></button>
             </div>
             <Tabs value={type} indicatorColor='primary' centered
                 onChange={(event, newValue) => {
