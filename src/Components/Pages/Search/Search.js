@@ -18,18 +18,6 @@ export default function Search() {
     const [content, setContent] = useState([]);
     const [search, setSearch] = useState('');
 
-    // useEffect(() => {
-
-    //     const data = async () => {
-    //         console.log(search, 'search');
-    //         let response = await axios.get(`https://api.themoviedb.org/3/search${type ? 'tv' : 'movie'}?api_key=1d3f8a1c0198093b711a7de4dd647d9e&language=en-US&page=${page}&query=${search}&include_adult=false`)
-    //         // console.log(response.data.results);
-    //         setContent(response.data.results)
-    //         setNumOfPages(response.data.total_pages)
-    //     };
-    //     data();
-    // }, [[type, page]]);
-
     const fetchSearch = async () => {
         const { data } = await axios.get(`https://api.themoviedb.org/3/search/${type ? 'tv' : 'movie'}`, {
             params: {
@@ -41,21 +29,8 @@ export default function Search() {
             }
         })
         console.log(data, 'data');
-        setContent(data.results)
-        setNumOfPages(data.total_pages)
-
-        // let response = await axios.get(`https://api.themoviedb.org/3/search${type ? 'tv' : 'movie'}?api_key=1d3f8a1c0198093b711a7de4dd647d9e&language=en-US&page=${page}&query=${search}&include_adult=false`)
-        // // console.log(response.data.results);
-        // const { data } = await ticketMaster.get(`/${type}.json`, {
-        //     params: {
-        //         apikey: 'dfSMiM1GWXpHvux6lF6TwpbPQABsWHr0',
-        //         countryCode: 'US',
-        //         page: page
-        //     }
-        // })
-        // setContent(response.data.results)
-        // setNumOfPages(response.data.total_pages)
-
+        setContent(data.results);
+        setNumOfPages(data.total_pages);
     };
 
     useEffect(() => {
