@@ -1,10 +1,12 @@
-import React from 'react';
 import { img_300, unavailable } from '../Config/Config';
 import './SingleContent.css'
+import React from 'react';
 
-function SingleContent({ id, title, media_type, poster, date, vote_average }) {
+
+function SingleContent({ id, title, media_type, poster, date, vote_average, onSeriesChange, setDisplay, display }) {
+
     return (
-        <div className='media'>
+        <div className='media' onClick={()=>{setDisplay(!display); onSeriesChange()}}>
             <span className="vote" style={{ backgroundColor: vote_average > 6 ? '#DC004E' : '#1976D2' }}>{vote_average}</span>
             <img className='poster' src={poster ? `${img_300}/${poster}` : unavailable} alt={title} />
             <b className='title'>{title}</b>
@@ -16,11 +18,3 @@ function SingleContent({ id, title, media_type, poster, date, vote_average }) {
 }
 
 export default SingleContent
-
-//key={trendy.id}
-//id={trendy.id}
-//title={trendy.title || trendy.name}
-//media_type = {trendy.media_type}
-//poster={trendy.poster_path}
-//date={trendy.release_date || trendy.first_air_date}
-//vote_average = {trendy.vote_average}

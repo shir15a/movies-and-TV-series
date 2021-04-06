@@ -23,8 +23,10 @@ function App() {
         <Container>
           <Switch >
             <Route path='/' component={Trending} exact />
-            <Route path='/movies' component={Movies} />
-            <Route path='/series' component={Series} />
+            <Route path='/movies' children={<Series type='movies'/>} />
+            <Route path='/series' children={<Series type='TV series'/>} />
+
+            {/* <Route path='/series' component={Series} /> */}
             <Route path='/search' component={Search} />
             <Route path='/MyFav' component={MyFav} />
           </Switch>

@@ -4,11 +4,18 @@ import SingleContent from '../../SingleContent/SingleContent';
 import CustomPagination from '../../Pagination/CustomPagination'
 import Genres from '../../Genres/Genres'
 import useGenre from "../../Genres/UseGenre";
+import PopUp from "../../PopUp/PopUp";
+
+
 
 
 const REACT_APP_API_KEY = '1d3f8a1c0198093b711a7de4dd647d9e';
 
-function Movies() {
+function Movies(props) {
+    console.log(props.type);
+    const movieOrSeries = props.type === 'movies' ? 'movie' : 'tv';
+    console.log('movieOrSeries', movieOrSeries);
+
 
     const [page, setPage] = useState(1);
     const [content, setContent] = useState([]);
@@ -16,10 +23,16 @@ function Movies() {
     const [selectedGenres, setSelectedGenres] = useState([]) //after select 
     const [genres, setGenres] = useState([])
     const genreforURL = useGenre(selectedGenres);
+    const [display, setDisplay] = useState(false);
+    const [selectedSeries, setSelectedSeries] = useState({})
+
 
     useEffect(() => {
+
         const moviesData = async () => {
-            let response = await axios.get(`https://api.themoviedb.org/3/discover/tv?api_key=${REACT_APP_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreforURL}`)
+            let response = await axios.get(`https://api.themoviedb.org/3/discover/${props.type === 'movies' ? 'movie' : 'tv'}?api_key=${REACT_APP_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreforURL}`)
+            console.log(response);
+
             console.log(response.data.results);
             setContent(response.data.results)
             setNumOfPages(response.data.total_pages);
@@ -29,27 +42,51 @@ function Movies() {
             setNumOfPages({});
             // setNumOfPages([]); 
         };
-    }, [page, genreforURL]);
+    }, [page, genreforURL, props.type]);
+
+
+
+
+
+    // useEffect(() => {
+    //     const moviesData = async () => {
+    //         let response = await axios.get(`https://api.themoviedb.org/3/discover/tv?api_key=${REACT_APP_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreforURL}`)
+    //         console.log(response.data.results);
+    //         setContent(response.data.results)
+    //         setNumOfPages(response.data.total_pages);
+    //     };
+    //     moviesData();
+    //     return () => {
+    //         setNumOfPages({});
+    //         // setNumOfPages([]); 
+    //     };
+    // }, [page, genreforURL]);
 
     return (
         <div>
-            <span className="pageTitle">TV Series</span>
+            <span className="pageTitle">{props.type}</span>
             <Genres type='tv' selectedGenres={selectedGenres}
                 setSelectedGenres={setSelectedGenres}
                 genres={genres}
                 setGenres={setGenres}
                 setPage={setPage} />
             <div className='trending'>
-                {content && content.map((tvSeries) => {
-                    return <SingleContent key={tvSeries.id}
-                        id={tvSeries.id}
-                        title={tvSeries.name}
-                        poster={tvSeries.poster_path}
-                        date={tvSeries.first_air_date}
-                        vote_average={tvSeries.vote_average}
-                        media_type='TV Series'
+                {content && content.map((item) => {
+                    return <SingleContent key={item.id}
+                        id={item.id}
+                        title={item.name || item.title}
+                        poster={item.poster_path}
+                        date={item.first_air_date || item.release_date}
+                        vote_average={item.vote_average}
+                        media_type={props.type === 'movies' ? 'movie' : 'TV Series'}
+                        onSeriesChange={() => setSelectedSeries(item)}
+                        setDisplay={(value) => setDisplay(value)}
+                        display={display}
                     />
                 })}
+                <PopUp display={display} setDisplay={(value) => setDisplay(value)}>
+                    <h1>{selectedSeries.name || selectedSeries.title}</h1>
+                </PopUp>
             </div>
             {numOfPages > 1 && (
                 <CustomPagination page={page} setPage={setPage} numOfPages={numOfPages} />)}

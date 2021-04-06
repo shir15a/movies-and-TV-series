@@ -7,12 +7,22 @@
     background-color: #282c34;
     border-radius: 10px;
     /* font-family: 'Yanone Kaffeesatz', sans-serif; */
-    position: relative;
 }
 
 .media:hover{
     background-color: white;
     color: black;
+}
+
+.show-details {
+    width: 80vw;
+    height: 80vh;
+    background: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
 }
 
 .vote{

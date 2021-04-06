@@ -8,8 +8,8 @@ import useGenre from "../../Genres/UseGenre";
 
 const REACT_APP_API_KEY = '1d3f8a1c0198093b711a7de4dd647d9e';
 
-function Movies() {
-
+function Movies(props) {
+    console.log(props.type);
     const [page, setPage] = useState(1);
     const [content, setContent] = useState([]);
     const [numOfPages, setNumOfPages] = useState([]);
