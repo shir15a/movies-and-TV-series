@@ -11,6 +11,7 @@ function MyFav() {
     const [selectedSeries, setSelectedSeries] = useState({})
     const [display, setDisplay] = useState(false);
 
+    console.log(selectedSeries, 'selectedSeries');
     return (
         <div>
             {arr.length> 0 && <div className='trending'>
@@ -30,6 +31,8 @@ function MyFav() {
                 })}
 
                 <PopUp
+                selectedSeries = {selectedSeries}
+                    popUp ={true}
                     id={selectedSeries.id}
                     display={display}
                     setDisplay={(value) => setDisplay(value)}>

@@ -90,7 +90,7 @@ export default function PopUp({ display, setDisplay, children, media_type, id })
                                 <div>
                                     <button onClick={isFav ? onDisLikeClick : onLikeClick}> {isFav ? <FavoriteIcon style={{ color: red[800] }} />
                                         : <FavoriteBorderIcon style={{ color: red[800] }} />
-                                    } Add to my FAV</button>
+                                    } Add to my favorites</button>
                                 </div>
                             </div>
                         </div>
