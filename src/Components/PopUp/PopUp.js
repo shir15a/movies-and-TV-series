@@ -11,7 +11,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import CloseIcon from '@material-ui/icons/Close';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-import { addEventToLocal, removeEvent, inFav } from '../../LocalStorage/LocalStorage'
+import { addEventToLocal, removeEvent, inFav } from '../../LocalStorage/LocalStorage';
 
 import { red } from '@material-ui/core/colors';
 
@@ -65,7 +65,7 @@ export default function PopUp({ display, setDisplay, children, media_type, id })
         setIsFav(!isFav)
     }
 
-
+    
     return (
         <div>
             { display && (
