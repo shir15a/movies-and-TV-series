@@ -1,4 +1,3 @@
-
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import AliceCarousel from "react-alice-carousel";
@@ -61,17 +60,6 @@ const Gallery = ({ id, media_type }) => {
         source.cancel()
     };
 }, [credits, id, media_type]);
-
-
-  // useEffect(() => {
-  //   const fetchCredits = async () => {
-  //     const { data } = await axios.get(
-  //       `https://api.themoviedb.org/3/${media_type}/${id}/credits?api_key=${REACT_APP_API_KEY}&language=en-US`
-  //     );
-  //     setCredits(data.cast);
-  //   };
-  //   fetchCredits();
-  // }, [credits]);
 
   return (
     <AliceCarousel

@@ -3,8 +3,6 @@ import { getAllLocalData } from '../../../LocalStorage/LocalStorage'
 import SingleContent from '../../SingleContent/SingleContent';
 import PopUp from "../../PopUp/PopUp";
 
-
-
 function MyFav() {
 
     const arr = getAllLocalData();
@@ -12,7 +10,6 @@ function MyFav() {
 
     const [selectedSeries, setSelectedSeries] = useState({})
     const [display, setDisplay] = useState(false);
-
 
     return (
         <div>

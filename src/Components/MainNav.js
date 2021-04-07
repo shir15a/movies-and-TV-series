@@ -14,12 +14,18 @@ import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 // material ui inline style
 const useStyles = makeStyles({
     root: {
-        width: "100%",
-        position: 'fixed',
-        bottom: 0,
-        backgroundColor: '#2d313a',
-        zIndex: 1,
+        // width: "100%",
+        // position: 'fixed',
+        // bottom: 0,
+        // backgroundColor: '#2d313a',
+        // zIndex: 1,
+        // color: 'whitesmoke',
         color: 'whitesmoke',
+        width: '100%',
+        top: '85px',
+        zIndex: 2,
+        position: 'fixed',
+        backgroundColor: 'transparent',
     },
 });
 

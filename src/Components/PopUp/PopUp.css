@@ -1,12 +1,12 @@
 .show-details {
-    width: 80vw;
+    width: 67vw;
     height: 80vh;
-    background:rgba(255,255,255, 0.9);
+    background: rgba(255,255,255, 0.9);
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 2;
+    z-index: 3;
     color: black;
 }
 
@@ -15,47 +15,41 @@
     justify-content: space-between;
     display: block;
     margin-left: auto;
-    margin-right: auto;
-    width: 30%;
-    overflow-y: scroll;
+    margin-right: 4%;
+    margin-top: 4%;
+    width: 60%;
 }
-
-
 
 .ContentModal::-webkit-scrollbar {
     display: none;
 }
   
-
 .ContentModal__portrait {
-    height: 67%;
-    width: 25%;
-    left: 2%;
+    height: 73%;
+    width: 27%;
+    left: 3%;
     position: absolute;
     bottom: 12%;
     border-radius: 2%;
-
 }
 
 .ContentModal__description {
     display: flex;
     height: auto;
-    width: auto;
-    /* overflow-y: scroll; */
+    width: 95%;
     padding: 15px;
     border-radius: 20px;
     scrollbar-width: thin;
     box-shadow: inset 0 0 5px #000000;
     text-align: justify;
-    margin-top: 20%;
-  }
+    margin-top: 2%;
+    font-size: larger;
+}
 
 
-  button{
+button{
     background-color: Transparent;
-    background-repeat:no-repeat;
     border: none;
-    cursor:pointer;
-    overflow: hidden;
-    outline:none;
-  }
+    cursor: pointer;
+    font-size: larger;
+}

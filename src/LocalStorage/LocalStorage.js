@@ -1,4 +1,3 @@
-
 export const inisializeLocal = () => {
     const json = localStorage.getItem('myFavorites');
     if (!json) {

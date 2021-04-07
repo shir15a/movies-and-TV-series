@@ -18,13 +18,6 @@ function CustomPagination({ type, page, setPage, numOfPages = 15 }) {
 
     }, [page])
 
-    // useEffect(() => {
-    //     setLocalPage(1);
-    //     setPage(1);
-
-    // }, [type])
-
-
     const handlePageChange = (event, value) => {
         console.log(value, 'value');
         setLocalPage(value);

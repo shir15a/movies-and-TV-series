@@ -22,26 +22,6 @@ function Movies(props) {
     const [display, setDisplay] = useState(false);
     const [selectedSeries, setSelectedSeries] = useState({})
 
-
-    // useEffect(() => {
-
-    //     const fetchData = async () => {
-    //         if(content.length > 1){
-    //         let response = await axios.get(`https://api.themoviedb.org/3/discover/${props.type === 'movies' ? 'movie' : 'tv'}?api_key=${REACT_APP_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${props.type === 'movies' ? pageMovie : pageSeries}&with_genres=${genreforURL}`)
-    //         console.log(response);
-
-    //         console.log(response.data.results);
-    //         setContent(response.data.results)
-    //         setNumOfPages(response.data.total_pages);
-    //     }};
-
-    //     fetchData();
-    //     return () => {
-    //         setNumOfPages({});
-    //         // setNumOfPages([]); 
-    //     };
-    // }, [pageMovie, pageSeries, genreforURL, props.type]);
-
     useEffect(() => {
         let source = axios.CancelToken.source();
         const loadData = async () => {
@@ -116,32 +96,3 @@ function Movies(props) {
 }
 
 export default Movies
-
-// backdrop_path: "/JB17sIsU53NuWVUecOwrCA0CUp.jpg"
-// first_air_date: "2021-03-19"
-// genre_ids: (3) [10765, 10759, 18]
-// id: 88396
-// name: "The Falcon and the Winter Soldier"
-// origin_country: ["US"]
-// original_language: "en"
-// original_name: "The Falcon and the Winter Soldier"
-// overview: "Following the events of “Avengers: Endgame”, the Falcon, Sam Wilson and the Winter Soldier, Bucky Barnes team up in a global adventure that tests their abilities, and their patience."
-// popularity: 6813.1
-// poster_path: "/6kbAMLteGO8yyewYau6bJ683sw7.jpg"
-// vote_average: 7.8
-// vote_count: 2743
-
-
-    // useEffect(() => {
-    //     const moviesData = async () => {
-    //         let response = await axios.get(`https://api.themoviedb.org/3/discover/tv?api_key=${REACT_APP_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreforURL}`)
-    //         console.log(response.data.results);
-    //         setContent(response.data.results)
-    //         setNumOfPages(response.data.total_pages);
-    //     };
-    //     moviesData();
-    //     return () => {
-    //         setNumOfPages({});
-    //         // setNumOfPages([]); 
-    //     };
-    // }, [page, genreforURL]);

@@ -19,7 +19,8 @@
     display: flex;
     justify-content: center;
     font-size: 2vw;
-    padding-bottom: 6px;
+    padding-top: 5%;
+    padding-bottom: 2%;
     border-radius: 80px;
 }
 

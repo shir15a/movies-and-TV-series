@@ -6,7 +6,7 @@ import React from 'react';
 function SingleContent({ id, title, media_type, poster, date, vote_average, onSeriesChange, setDisplay, display }) {
 
     return (
-        <div className='media' onClick={()=>{setDisplay(!display); onSeriesChange()}}>
+        <div className='media' onClick={() => { setDisplay(!display); onSeriesChange() }}>
             <span className="vote" style={{ backgroundColor: vote_average > 6 ? '#DC004E' : '#1976D2' }}>{vote_average}</span>
             <img className='poster' src={poster ? `${img_300}/${poster}` : unavailable} alt={title} />
             <b className='title'>{title}</b>

@@ -17,12 +17,6 @@ function Movies(props) {
     const [genres, setGenres] = useState([])
     const genreforURL = useGenre(selectedGenres);
 
-    // const useGenre = (selectedGenres) => {
-    //     if (selectedGenres.length > 1) return '';
-    //     const genreIds = selectedGenres.map((genre) => genre.id);
-    //     return genreIds.reduce((acc, curr) => acc + "," + curr, []);
-    // }
-
     useEffect(() => {
         const moviesData = async () => {
             let response = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${REACT_APP_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreforURL}`)
@@ -66,21 +60,3 @@ function Movies(props) {
 }
 
 export default Movies
-
-
-// adult: false
-// backdrop_path: "/u5WUCO6irZoq27qbYYrtLUrCGDV.jpg"
-// genre_ids: (2) [27, 53]
-// id: 630586
-// original_language: "en"
-// original_title: "Wrong Turn"
-// overview: "Jen and a group of friends set out to hike the Appalachian Trail. Despite warnings to stick to the trail, the hikers stray off course—and cross into land inhabited by The Foundation, a hidden community of mountain dwellers who use deadly means to protect their way of life."
-// popularity: 1043.387
-// poster_path: "/4U1SBHmwHkNA0eHZ2n1CuiC1K1g.jpg"
-// release_date: "2021-01-26"
-// title: "Wrong Turn"
-// video: false
-// vote_average: 6.2
-// vote_count: 318
-
-
