@@ -28,7 +28,6 @@ export const removeEvent = (event) => {
 
 //
 export const inFav = (event) => {
-    console.log(event, 'event');
     const json = localStorage.getItem('myFavorites');
     let data = JSON.parse(json);
     if (data) {

@@ -6,7 +6,7 @@ export const img_500 = "https://image.tmdb.org/t/p/w500";
 
 // contentModal and singleContent
 export const unavailable =
-  "https://www.movienewz.com/img/films/poster-holder.jpg";
+  "https://westsiderc.org/wp-content/uploads/2019/08/Image-Not-Available-450x600.png";
 
 // contentModal
 export const unavailableLandscape =

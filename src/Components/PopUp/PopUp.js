@@ -4,7 +4,7 @@ import axios from 'axios'
 import {
     img_500,
     unavailable,
-} from "../../Components/Config/Config";
+} from "../Config/Config";
 import Carousel from "../../Components/Carousel/Carousel";
 
 import FavoriteIcon from '@material-ui/icons/Favorite';
@@ -38,8 +38,7 @@ export default function PopUp({ display, setDisplay, children, media_type, id })
                     `https://api.themoviedb.org/3/${media_type}/${id}/videos?api_key=${REACT_APP_API_KEY}&language=en-US`
                 );
 
-                setVideo(data.results[0]?.key);
-
+                setVideo(data.results[0]?.key)
                 setContent(respone.data);
             }
             catch (error) {
@@ -55,7 +54,7 @@ export default function PopUp({ display, setDisplay, children, media_type, id })
         return () => {
             source.cancel()
         };
-    }, [content, id]);
+    }, [content, id, media_type]);
 
 
     // useEffect(() => {

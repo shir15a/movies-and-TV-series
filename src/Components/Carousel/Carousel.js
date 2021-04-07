@@ -3,7 +3,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
-import { img_300, noPicture } from "../../Components/Config/Config";
+import { img_300, noPicture } from "../Config/Config";
 
 import "./Carousel.css";
 
@@ -60,7 +60,7 @@ const Gallery = ({ id, media_type }) => {
     return () => {
         source.cancel()
     };
-}, [credits]);
+}, [credits, id, media_type]);
 
 
   // useEffect(() => {
