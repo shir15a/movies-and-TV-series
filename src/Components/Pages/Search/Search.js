@@ -61,7 +61,7 @@ export default function Search() {
                 <Tab label='Search Movies' style={{ width: '50%', color: 'white' }}></Tab>
                 <Tab label='Search Series' style={{ width: '50%', color: 'white' }}></Tab>
             </Tabs>
-            <div className="trending">
+            <div className="page-items">
                 {content &&
                     content.map((c) => (
                         <SingleContent

@@ -29,7 +29,7 @@ function Trending() {
         return (
             <div>
                 <span className="pageTitle">Trending</span>
-                <div className='trending'>
+                <div className='page-items'>
                     {content && content.map((trendy) => {
                         return <SingleContent key={trendy.id}
                             id={trendy.id}

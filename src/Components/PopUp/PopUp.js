@@ -33,10 +33,10 @@ export default function PopUp({ display, setDisplay, children, media_type, id })
         const loadData = async () => {
             try {
                 const respone = await axios.get(`https://api.themoviedb.org/3/${media_type}/${id}?api_key=${REACT_APP_API_KEY}&language=en-US`, { cancelToken: source.token });
-                const { data } = await axios.get(
+                const videoEndPoint = await axios.get(
                     `https://api.themoviedb.org/3/${media_type}/${id}/videos?api_key=${REACT_APP_API_KEY}&language=en-US`
                 );
-                setVideo(data.results[0]?.key)
+                setVideo(videoEndPoint.data.results[0]?.key)
                 setContent(respone.data);
             }
             catch (error) {
@@ -64,7 +64,6 @@ export default function PopUp({ display, setDisplay, children, media_type, id })
         setIsFav(!isFav)
     }
 
-    
     return (
         <div>
             { display && (

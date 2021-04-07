@@ -12,15 +12,15 @@ const REACT_APP_API_KEY = '1d3f8a1c0198093b711a7de4dd647d9e';
 function Movies(props) {
 
     const [page, setPage] = useState(1);
-    const [pageMovie, setPageMovie] = useState(1);
-    const [pageSeries, setPageSeries] = useState(1);
-    const [content, setContent] = useState([]);
-    const [numOfPages, setNumOfPages] = useState([]);
+    const [pageMovie, setPageMovie] = useState(1); //for API
+    const [pageSeries, setPageSeries] = useState(1); //for API
+    const [content, setContent] = useState([]); // Data
+    const [numOfPages, setNumOfPages] = useState([]); //total pages
     const [selectedGenres, setSelectedGenres] = useState([]) //after select 
-    const [genres, setGenres] = useState([])
+    const [genres, setGenres] = useState([]) // all genres
     const genreforURL = useGenre(selectedGenres);
-    const [display, setDisplay] = useState(false);
-    const [selectedSeries, setSelectedSeries] = useState({})
+    const [display, setDisplay] = useState(false); // for popUp
+    const [selectedSeries, setSelectedSeries] = useState({}) // for popUp
 
     useEffect(() => {
         let source = axios.CancelToken.source();
@@ -65,7 +65,7 @@ function Movies(props) {
                     genres={genres}
                     setGenres={setGenres}
                     setPage={setPage} />
-                <div className='trending'>
+                <div className='page-items'>
                     {content && content.map((item) => {
                         return <SingleContent key={item.id}
                             id={item.id}
@@ -96,7 +96,7 @@ function Movies(props) {
             </div>
         )
     }
-    else return (<Spinner/>)
+    else return (<Spinner />)
 
 
 }

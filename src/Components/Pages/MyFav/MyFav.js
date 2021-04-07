@@ -2,6 +2,8 @@ import React, { useState} from 'react';
 import { getAllLocalData } from '../../../LocalStorage/LocalStorage'
 import SingleContent from '../../SingleContent/SingleContent';
 import PopUp from "../../PopUp/PopUp";
+import  "./MyFav.css";
+
 
 function MyFav() {
 
@@ -14,7 +16,7 @@ function MyFav() {
     console.log(selectedSeries, 'selectedSeries');
     return (
         <div>
-            {arr.length> 0 && <div className='trending'>
+            {arr.length> 0 && <div className='page-items'>
                 {arr.map((item) => {
                     console.log(item);
                     return <SingleContent key={item.id}
