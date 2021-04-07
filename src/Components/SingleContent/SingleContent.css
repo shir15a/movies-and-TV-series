@@ -6,10 +6,10 @@
     margin: 5px 0;
     background-color: #282c34;
     border-radius: 10px;
-    /* font-family: 'Yanone Kaffeesatz', sans-serif; */
 }
 
 .media:hover{
+    transform: scale(1.1); 
     background-color: white;
     color: black;
 }
@@ -26,7 +26,7 @@
 }
 
 .vote{
-border: 1px solid transparent;
+    border: 1px solid transparent;
     width: 20px;
     height: 21px;
     border-radius: 100%;
@@ -55,7 +55,6 @@ border: 1px solid transparent;
     display: flex;
     justify-content: space-around;
 }
-
 
 
 @media (max-width: 550px){

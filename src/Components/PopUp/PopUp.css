@@ -10,7 +10,7 @@
     color: black;
 }
 
-.ContentModal {
+.modal {
     display: flex;
     justify-content: space-between;
     display: block;
@@ -19,12 +19,8 @@
     margin-top: 4%;
     width: 60%;
 }
-
-.ContentModal::-webkit-scrollbar {
-    display: none;
-}
   
-.ContentModal__portrait {
+.modal-img {
     height: 73%;
     width: 27%;
     left: 3%;
@@ -33,7 +29,7 @@
     border-radius: 2%;
 }
 
-.ContentModal__description {
+.modal-overview {
     display: flex;
     height: auto;
     width: 95%;
@@ -44,6 +40,10 @@
     text-align: justify;
     margin-top: -4%;
     font-size: larger;
+}
+
+.modal-overview:hover{
+    transform: scale(1.1); 
 }
 
 

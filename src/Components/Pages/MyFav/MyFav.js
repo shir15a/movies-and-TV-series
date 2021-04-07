@@ -31,8 +31,6 @@ function MyFav() {
                 })}
 
                 <PopUp
-                selectedSeries = {selectedSeries}
-                    popUp ={true}
                     id={selectedSeries.id}
                     display={display}
                     setDisplay={(value) => setDisplay(value)}>

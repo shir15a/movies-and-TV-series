@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import './PopUp.css'
 import axios from 'axios'
 import {
     img_500,
     unavailable,
 } from "../Config/Config";
 import Carousel from "../../Components/Carousel/Carousel";
-
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import CloseIcon from '@material-ui/icons/Close';
@@ -14,6 +12,7 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import { addEventToLocal, removeEvent, inFav } from '../../LocalStorage/LocalStorage';
 
 import { red } from '@material-ui/core/colors';
+import './PopUp.css'
 
 
 const REACT_APP_API_KEY = '1d3f8a1c0198093b711a7de4dd647d9e';
@@ -74,12 +73,12 @@ export default function PopUp({ display, setDisplay, children, media_type, id })
                     <div style={{ textAlign: 'center' }}> {children}</div>
                     {content && <p style={{ textAlign: 'center' }}>{content.tagline}</p>}
                     {content && (
-                        <div className='ContentModal'>
-                            <div className='itemImg'>
-                                <img className="ContentModal__portrait" src={content.poster_path ? `${img_500}/${content.poster_path}` : unavailable} alt={content.name || content.title}></img>
+                        <div className='modal'>
+                            <div className='item-img'>
+                                <img className="modal-img" src={content.poster_path ? `${img_500}/${content.poster_path}` : unavailable} alt={content.name || content.title}></img>
                             </div>
                             <div className='itemDetails'>
-                                <p className="ContentModal__description">
+                                <p className="modal-overview">
                                     {content.overview}
                                 </p>
                                 <div>
