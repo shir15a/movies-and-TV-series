@@ -6,9 +6,6 @@ import Genres from '../../Genres/Genres'
 import useGenre from "../../Genres/UseGenre";
 import PopUp from "../../PopUp/PopUp";
 
-
-
-
 const REACT_APP_API_KEY = '1d3f8a1c0198093b711a7de4dd647d9e';
 
 function Movies(props) {
@@ -29,7 +26,7 @@ function Movies(props) {
 
     useEffect(() => {
 
-        const moviesData = async () => {
+        const fetchData = async () => {
             let response = await axios.get(`https://api.themoviedb.org/3/discover/${props.type === 'movies' ? 'movie' : 'tv'}?api_key=${REACT_APP_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreforURL}`)
             console.log(response);
 
@@ -37,7 +34,8 @@ function Movies(props) {
             setContent(response.data.results)
             setNumOfPages(response.data.total_pages);
         };
-        moviesData();
+
+        fetchData();
         return () => {
             setNumOfPages({});
             // setNumOfPages([]); 
@@ -78,18 +76,19 @@ function Movies(props) {
                         poster={item.poster_path}
                         date={item.first_air_date || item.release_date}
                         vote_average={item.vote_average}
-                        media_type={props.type === 'movies' ? 'movie' : 'TV Series'}
+                        media_type={props.type === 'movies' ? 'movie' : 'tv'}
                         onSeriesChange={() => setSelectedSeries(item)}
                         setDisplay={(value) => setDisplay(value)}
                         display={display}
                     />
                 })}
-                <PopUp display={display} setDisplay={(value) => setDisplay(value)}>
+       
+                <PopUp  media_type={props.type === 'movies' ? 'movie' : 'tv'} id={selectedSeries.id} display={display} setDisplay={(value) => setDisplay(value)}>
                     <h1>{selectedSeries.name || selectedSeries.title}</h1>
                 </PopUp>
             </div>
             {numOfPages > 1 && (
-                <CustomPagination page={page} setPage={setPage} numOfPages={numOfPages} />)}
+                <CustomPagination type={props.type} page={page} setPage={setPage} numOfPages={numOfPages} />)}
         </div>
     )
 }

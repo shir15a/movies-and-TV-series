@@ -23,8 +23,9 @@ function App() {
         <Container>
           <Switch >
             <Route path='/' component={Trending} exact />
-            <Route path='/movies' children={<Series type='movies'/>} />
-            <Route path='/series' children={<Series type='TV series'/>} />
+            <Route path='/series' children={<Series type='TV series' />} />
+
+            <Route path='/movies' children={<Series type='movies' />} />
 
             {/* <Route path='/series' component={Series} /> */}
             <Route path='/search' component={Search} />
@@ -38,3 +39,7 @@ function App() {
 }
 
 export default App;
+
+
+{/* <Route path='/movies' children={<Series type='movies'/>} />
+<Route path='/series' children={<Series type='TV series'/>} /> */}

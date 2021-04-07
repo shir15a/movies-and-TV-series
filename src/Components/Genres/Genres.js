@@ -36,7 +36,7 @@ function Genres({ type, genres, setGenres, selectedGenres, setSelectedGenres, se
     };
 
     return (
-        <div>
+        <div >
             {selectedGenres.map((genre) => {
                 return <Chip label={genre.name}
                     key={genre.id}

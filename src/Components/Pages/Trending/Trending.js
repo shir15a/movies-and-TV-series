@@ -3,11 +3,17 @@ import React, { useState, useEffect } from 'react';
 import SingleContent from '../../SingleContent/SingleContent';
 import './Trending.css'
 import CustomPagination from '../../Pagination/CustomPagination'
+import PopUp from "../../PopUp/PopUp";
+
 const REACT_APP_API_KEY = '1d3f8a1c0198093b711a7de4dd647d9e';
 
 function Trending() {
-    const [content, setContent] = useState([])
-    const [page, setPage] = useState(1)
+    const [content, setContent] = useState([]);
+    const [page, setPage] = useState(1);
+
+    const [display, setDisplay] = useState(false);
+    const [selectedSeries, setSelectedSeries] = useState({})
+
 
     useEffect(() => {
         const trendingData = async () => {
@@ -30,8 +36,14 @@ function Trending() {
                         poster={trendy.poster_path}
                         date={trendy.release_date || trendy.first_air_date}
                         vote_average={trendy.vote_average}
+                        onSeriesChange={() => setSelectedSeries(trendy)}
+                        setDisplay={(value) => setDisplay(value)}
+                        display={display}
                     />
                 })}
+                <PopUp media_type={selectedSeries.media_type} id={selectedSeries.id} display={display} setDisplay={(value) => setDisplay(value)}>
+                    <h1>{selectedSeries.name || selectedSeries.title}</h1>
+                </PopUp>
             </div>
 
             <CustomPagination page={page} setPage={setPage} />

@@ -9,14 +9,20 @@ const darkTheme = createMuiTheme({
     },
 })
 
-function CustomPagination({ page, setPage, numOfPages = 15 }) {
+function CustomPagination({ type, page, setPage, numOfPages = 15 }) {
 
     const[localPage, setLocalPage] = useState(page);
 
     useEffect(() => {
-        setLocalPage(page)
+        setLocalPage(page);
 
     }, [page])
+
+    // useEffect(() => {
+    //     setLocalPage(1);
+    //     setPage(1);
+
+    // }, [type])
 
 
     const handlePageChange = (event, value) => {
