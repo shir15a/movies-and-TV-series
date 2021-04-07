@@ -1,8 +1,9 @@
 .carouselItem {
-    display: flex;
-    flex-direction: column;
-    object-fit: contain;
-    padding: 10px;
+  display: flex;
+  flex-direction: column;
+  object-fit: contain;
+  padding: 10px;
+  width: 85%;
   }
   .carouselItem__img {
     border-radius: 10px;

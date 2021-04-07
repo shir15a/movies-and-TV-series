@@ -7,6 +7,7 @@ import { Tabs, Tab } from '@material-ui/core';
 
 import CustomPagination from "../../Pagination/CustomPagination";
 import SingleContent from "../../SingleContent/SingleContent";
+import PopUp from "../../PopUp/PopUp";
 
 const REACT_APP_API_KEY = '1d3f8a1c0198093b711a7de4dd647d9e';
 
@@ -17,6 +18,10 @@ export default function Search() {
     const [numOfPages, setNumOfPages] = useState(1);
     const [content, setContent] = useState([]);
     const [search, setSearch] = useState('');
+
+
+    const [selectedSeries, setSelectedSeries] = useState({})
+    const [display, setDisplay] = useState(false);
 
     const fetchSearch = async () => {
         const { data } = await axios.get(`https://api.themoviedb.org/3/search/${type ? 'tv' : 'movie'}`, {
@@ -67,8 +72,20 @@ export default function Search() {
                             date={c.first_air_date || c.release_date}
                             media_type={type ? "tv" : "movie"}
                             vote_average={c.vote_average}
+
+                            onSeriesChange={() => setSelectedSeries(c)}
+                            setDisplay={(value) => setDisplay(value)}
+                            display={display}
+
                         />
                     ))}
+                <PopUp media_type={selectedSeries.type === 'movies' ? 'movie' : 'tv'}
+                    id={selectedSeries.id}
+                    display={display}
+                    setDisplay={(value) => setDisplay(value)}>
+                    <h1>{selectedSeries.name || selectedSeries.title}</h1>
+                    <h2>{selectedSeries.first_air_date || selectedSeries.release_date}</h2>
+                </PopUp>
             </div>
             {numOfPages > 1 && (
                 <CustomPagination page={page} setPage={setPage} numOfPages={numOfPages} />

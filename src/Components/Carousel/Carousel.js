@@ -38,18 +38,40 @@ const Gallery = ({ id, media_type }) => {
     },
   };
 
-  const fetchCredits = async () => {
-    const { data } = await axios.get(
-      `https://api.themoviedb.org/3/${media_type}/${id}/credits?api_key=${REACT_APP_API_KEY}&language=en-US`
-    );
-    console.log(data.cast, 'data.cast');
-    setCredits(data.cast);
-  };
-
   useEffect(() => {
-    fetchCredits();
-    // eslint-disable-next-line
-  }, [credits]);
+    let source = axios.CancelToken.source();
+
+    const loadData = async () => {
+        try {
+            const respone = await axios.get(`https://api.themoviedb.org/3/${media_type}/${id}/credits?api_key=${REACT_APP_API_KEY}&language=en-US`, { cancelToken: source.token });
+
+            setCredits(respone.data.cast);
+        }
+        catch (error) {
+            if (axios.isCancel(error)) {
+                console.log('caught cancel');
+            } else {
+                throw error;
+            }
+        }
+    };
+
+    loadData();
+    return () => {
+        source.cancel()
+    };
+}, [credits]);
+
+
+  // useEffect(() => {
+  //   const fetchCredits = async () => {
+  //     const { data } = await axios.get(
+  //       `https://api.themoviedb.org/3/${media_type}/${id}/credits?api_key=${REACT_APP_API_KEY}&language=en-US`
+  //     );
+  //     setCredits(data.cast);
+  //   };
+  //   fetchCredits();
+  // }, [credits]);
 
   return (
     <AliceCarousel

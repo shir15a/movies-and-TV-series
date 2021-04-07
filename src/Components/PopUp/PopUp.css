@@ -27,18 +27,34 @@
   
 
 .ContentModal__portrait {
-    height: 20%;
-    width: 24%;
+    height: 67%;
+    width: 25%;
+    left: 2%;
+    position: absolute;
+    bottom: 12%;
+    border-radius: 2%;
 
 }
 
 .ContentModal__description {
     display: flex;
-    height: 40%;
-    overflow-y: scroll;
+    height: auto;
+    width: auto;
+    /* overflow-y: scroll; */
     padding: 15px;
     border-radius: 20px;
-    scrollbar-width: thin; /* Firefox */
+    scrollbar-width: thin;
     box-shadow: inset 0 0 5px #000000;
     text-align: justify;
+    margin-top: 20%;
+  }
+
+
+  button{
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
   }
