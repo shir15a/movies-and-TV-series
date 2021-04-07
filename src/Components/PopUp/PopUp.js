@@ -11,9 +11,10 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import CloseIcon from '@material-ui/icons/Close';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-
-
 import { addEventToLocal, removeEvent, inFav } from '../../LocalStorage/LocalStorage'
+
+import { red } from '@material-ui/core/colors';
+
 
 const REACT_APP_API_KEY = '1d3f8a1c0198093b711a7de4dd647d9e';
 
@@ -84,9 +85,12 @@ export default function PopUp({ display, setDisplay, children, media_type, id })
                                 <div>
                                     <Carousel id={id} media_type={media_type} />
                                 </div>
-                                <a href={`https://www.youtube.com/watch?v=${video}`} target='blank'><button>{<YouTubeIcon />} Watch the Trailer</button></a>
+                                <a href={`https://www.youtube.com/watch?v=${video}`} target='blank'><button>{<YouTubeIcon style={{ color: red[800] }} />
+                                } Watch the Trailer</button></a>
                                 <div>
-                                    <button onClick={isFav ? onDisLikeClick : onLikeClick}> {isFav ? <FavoriteIcon /> : <FavoriteBorderIcon />} Add to my FAV</button>
+                                    <button onClick={isFav ? onDisLikeClick : onLikeClick}> {isFav ? <FavoriteIcon style={{ color: red[800] }} />
+                                        : <FavoriteBorderIcon style={{ color: red[800] }} />
+                                    } Add to my FAV</button>
                                 </div>
                             </div>
                         </div>

@@ -14,4 +14,4 @@ export const unavailableLandscape =
 
 // For Carousel
 export const noPicture =
-  "https://upload.wikimedia.org/wikipedia/en/6/60/No_Picture.jpg";
+  "https://image.shutterstock.com/image-vector/no-image-available-sign-absence-260nw-373244122.jpg";
