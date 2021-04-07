@@ -8,10 +8,6 @@ export const img_500 = "https://image.tmdb.org/t/p/w500";
 export const unavailable =
   "https://westsiderc.org/wp-content/uploads/2019/08/Image-Not-Available-450x600.png";
 
-// contentModal
-export const unavailableLandscape =
-  "https://user-images.githubusercontent.com/10515204/56117400-9a911800-5f85-11e9-878b-3f998609a6c8.jpg";
-
 // For Carousel
 export const noPicture =
   "https://image.shutterstock.com/image-vector/no-image-available-sign-absence-260nw-373244122.jpg";
