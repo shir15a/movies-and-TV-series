@@ -15,6 +15,6 @@
 
 * API: 
 
-![themoviedb img](./public/images/movieAPI);
+![themoviedb img](./public/images/movieAPI.png);
 [API](https://developers.themoviedb.org/3/getting-started/introduction "https://developers.themoviedb.org/3/getting-started/introduction")
 
