@@ -13,15 +13,15 @@ const handleDragStart = (e) => e.preventDefault();
 const Gallery = ({ id, media_type }) => {
   const [credits, setCredits] = useState([]);
 
-  const items = credits.map((c) => (
-    <div className="carouselItem">
+  const items = credits.map((item) => (
+    <div className="carousel-item">
       <img
-        src={c.profile_path ? `${img_300}/${c.profile_path}` : noPicture}
-        alt={c?.name}
+        src={item.profile_path ? `${img_300}/${item.profile_path}` : noPicture}
+        alt={item?.name}
         onDragStart={handleDragStart}
-        className="carouselItem__img"
+        className="carousel-img"
       />
-      <b className="carouselItem__txt">{c?.name}</b>
+      <b className="carousel-txt">{item?.name}</b>
     </div>
   ));
 
@@ -39,33 +39,32 @@ const Gallery = ({ id, media_type }) => {
 
   useEffect(() => {
     let source = axios.CancelToken.source();
-
     const loadData = async () => {
-        try {
-            const respone = await axios.get(`https://api.themoviedb.org/3/${media_type}/${id}/credits?api_key=${REACT_APP_API_KEY}&language=en-US`, { cancelToken: source.token });
-            setCredits(respone.data.cast);
+      try {
+        const respone = await axios.get(`https://api.themoviedb.org/3/${media_type}/${id}/credits?api_key=${REACT_APP_API_KEY}&language=en-US`, { cancelToken: source.token });
+        setCredits(respone.data.cast);
+      }
+      catch (error) {
+        if (axios.isCancel(error)) {
+          console.log('caught cancel');
+        } else {
+          throw error;
         }
-        catch (error) {
-            if (axios.isCancel(error)) {
-                console.log('caught cancel');
-            } else {
-                throw error;
-            }
-        }
+      }
     };
 
     loadData();
     return () => {
-        source.cancel()
+      source.cancel()
     };
-}, [credits, id, media_type]);
+  }, [credits, id, media_type]);
 
   return (
     <AliceCarousel
-      mouseTracking
-      infinite
-      disableDotsControls
-      disableButtonsControls
+      mouseTracking // Enable mouse drag animation
+      // infinite // Set infinite mode
+      disableDotsControls //  Disable dots controls
+      disableButtonsControls //Disable buttons controls
       responsive={responsive}
       items={items}
       autoPlay
