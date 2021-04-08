@@ -20,7 +20,8 @@
 
 * Schema:
     * ![themoviedb img](./public/images/movie-tv-trending.png)
-    * ![themoviedb img](./public/images/popup.jpg)
+    * PopUp : 
+      ![themoviedb img](./public/images/popup.jpg)
 
 
 
