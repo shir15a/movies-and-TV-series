@@ -4,7 +4,9 @@
 
 * netlify link: [MOVIES AND TV SERIES](https://movies-and-tv-series.netlify.app/ "https:/movies-and-tv-series.netlify.app/")
 
-* Technology Wise:
+* Technologies Used:
+    * HTML
+    * CSS
     * React.js
     * React-Ruter
     * Purely functional components ( useState, useEffect)
