@@ -1,27 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { Tabs, Tab } from '@material-ui/core';
-
+import SearchIcon from '@material-ui/icons/Search';
 import CustomPagination from "../../Pagination/CustomPagination";
 import SingleContent from "../../SingleContent/SingleContent";
 import PopUp from "../../PopUp/PopUp";
+import { grey } from '@material-ui/core/colors';
+
+import axios from 'axios'
 
 const REACT_APP_API_KEY = '1d3f8a1c0198093b711a7de4dd647d9e';
 
 export default function Search() {
 
-    const [type, setType] = useState(0);
-    const [page, setPage] = useState(1);
-    const [numOfPages, setNumOfPages] = useState(1);
-    const [content, setContent] = useState([]);
+    const [type, setType] = useState(0); // tv or movie for API and for search menu
+    const [page, setPage] = useState(1); // which page for API
+    const [numOfPages, setNumOfPages] = useState(1); // total pages
+    const [content, setContent] = useState([]); // data
     const [search, setSearch] = useState('');
-
-
-    const [selectedSeries, setSelectedSeries] = useState({})
-    const [display, setDisplay] = useState(false);
+    const [selectedSeries, setSelectedSeries] = useState({}) // for popUp
+    const [display, setDisplay] = useState(false); // show popUp or not
 
     const fetchSearch = async () => {
         const { data } = await axios.get(`https://api.themoviedb.org/3/search/${type ? 'tv' : 'movie'}`, {
@@ -39,7 +37,7 @@ export default function Search() {
     };
 
     useEffect(() => {
-        // window.scroll(0, 0);
+        window.scroll(0, 0);
         if (search) fetchSearch();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [type, page]);
@@ -48,13 +46,11 @@ export default function Search() {
         <div>
             <span className="pageTitle">Search</span>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
-                <input onChange={(e) => setSearch(e.target.value)} style={{ width: '50%' }} type="text" id="search" placeholder='Search...' ></input>
-                <button onClick={() => fetchSearch()} id="searchBtn"><FontAwesomeIcon icon={faSearch} /></button>
+                <input onChange={(e) => setSearch(e.target.value)} style={{ width: '50%', fontSize: '2rem' }} type="text" id="search" placeholder='Search...' ></input>
+                <button onClick={() => fetchSearch()} id="searchBtn"><SearchIcon style={{ color: grey[50] }} /></button>
             </div>
             <Tabs value={type} indicatorColor='primary' centered
                 onChange={(event, newValue) => {
-                    console.log(event);
-                    console.log(newValue, 'newValue');
                     setType(newValue);
                     setPage(1);
                 }}>
@@ -63,17 +59,16 @@ export default function Search() {
             </Tabs>
             <div className="page-items">
                 {content &&
-                    content.map((c) => (
+                    content.map((item) => (
                         <SingleContent
-                            key={c.id}
-                            id={c.id}
-                            poster={c.poster_path}
-                            title={c.title || c.name}
-                            date={c.first_air_date || c.release_date}
+                            key={item.id}
+                            id={item.id}
+                            poster={item.poster_path}
+                            title={item.title || item.name}
+                            date={item.first_air_date || item.release_date}
                             media_type={type ? "tv" : "movie"}
-                            vote_average={c.vote_average}
-
-                            onSeriesChange={() => setSelectedSeries(c)}
+                            vote_average={item.vote_average}
+                            onSeriesChange={() => setSelectedSeries(item)}
                             setDisplay={(value) => setDisplay(value)}
                             display={display}
 

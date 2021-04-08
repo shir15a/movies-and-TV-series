@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import Pagination from '@material-ui/lab/Pagination';
 import './CustomPagination.css'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core';
@@ -11,7 +11,7 @@ const darkTheme = createMuiTheme({
 
 function CustomPagination({ type, page, setPage, numOfPages = 15 }) {
 
-    const[localPage, setLocalPage] = useState(page);
+    const [localPage, setLocalPage] = useState(page);
 
     useEffect(() => {
         setLocalPage(page);
@@ -35,3 +35,5 @@ function CustomPagination({ type, page, setPage, numOfPages = 15 }) {
 }
 
 export default CustomPagination
+
+// ThemeProvider for UI

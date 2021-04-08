@@ -7,18 +7,15 @@ import  "./MyFav.css";
 
 function MyFav() {
 
-    const arr = getAllLocalData();
-    console.log(arr);
+    const localDataArr = getAllLocalData();
 
     const [selectedSeries, setSelectedSeries] = useState({})
     const [display, setDisplay] = useState(false);
 
-    console.log(selectedSeries, 'selectedSeries');
     return (
         <div>
-            {arr.length> 0 && <div className='page-items'>
-                {arr.map((item) => {
-                    console.log(item);
+            {localDataArr.length> 0 && <div className='page-items'>
+                {localDataArr.map((item) => {
                     return <SingleContent key={item.id}
                         id={item.id}
                         title={item.name || item.title}

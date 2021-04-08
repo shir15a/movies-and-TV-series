@@ -27,6 +27,7 @@ export default function PopUp({ display, setDisplay, children, media_type, id })
         if (content) setIsFav(inFav(content))
     }, [content])
 
+    // inFav -> true or false
 
     useEffect(() => {
         let source = axios.CancelToken.source();
@@ -47,7 +48,6 @@ export default function PopUp({ display, setDisplay, children, media_type, id })
                 }
             }
         };
-
         loadData();
         return () => {
             source.cancel()
