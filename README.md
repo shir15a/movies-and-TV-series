@@ -13,6 +13,6 @@
 
 * API: 
 
-![Optional Text](./public/images/movieAPI);
-[MOVIES AND TV SERIES](https://developers.themoviedb.org/3/getting-started/introduction "https://developers.themoviedb.org/3/getting-started/introduction")
+![themoviedb img](./public/images/movieAPI);
+[API](https://developers.themoviedb.org/3/getting-started/introduction "https://developers.themoviedb.org/3/getting-started/introduction")
 

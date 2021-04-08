@@ -37,7 +37,7 @@ function Genres({ type, genres, setGenres, selectedGenres, setSelectedGenres, se
 
     return (
         <div >
-            {selectedGenres.map((genre) => {
+            {selectedGenres && selectedGenres.map((genre) => {
                 return <Chip label={genre.name}
                     key={genre.id}
                     style={{ margin: 2, fontWeight: 'bold' }}
@@ -45,7 +45,7 @@ function Genres({ type, genres, setGenres, selectedGenres, setSelectedGenres, se
                     onDelete={() => handleRemove(genre)}
                 />
             })}
-            {genres.map((genre) => {
+            {genres && genres.map((genre) => {
                 return <Chip label={genre.name}
                     key={genre.id}
                     style={{ margin: 2, fontWeight: 'bold' }}

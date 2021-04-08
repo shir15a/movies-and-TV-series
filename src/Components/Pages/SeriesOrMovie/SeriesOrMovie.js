@@ -18,7 +18,7 @@ function Movies(props) {
     const [numOfPages, setNumOfPages] = useState([]); //total pages
     const [selectedGenres, setSelectedGenres] = useState([]) //after select 
     const [genres, setGenres] = useState([]) // all genres
-    const genreforURL = useGenre(selectedGenres);
+    const genreforURL = useGenre(selectedGenres); // arr of genres
     const [display, setDisplay] = useState(false); // for popUp
     const [selectedSeries, setSelectedSeries] = useState({}) // for popUp
 
