@@ -15,6 +15,12 @@
 
 * API: 
 
-![themoviedb img](./public/images/movieAPI.png);
-[API](https://developers.themoviedb.org/3/getting-started/introduction "https://developers.themoviedb.org/3/getting-started/introduction")
+    * ![themoviedb img](./public/images/movieAPI.png);
+    * [API](https://developers.themoviedb.org/3/getting-started/introduction "https://developers.themoviedb.org/3/getting-started/introduction")
+
+* Schema:
+    * ![themoviedb img](./public/images/movie-tv-trending.png);
+    * ![themoviedb img](./public/images/popup.jpg);
+
+
 
