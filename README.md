@@ -19,8 +19,8 @@
     * [API](https://developers.themoviedb.org/3/getting-started/introduction "https://developers.themoviedb.org/3/getting-started/introduction")
 
 * Schema:
-    * ![themoviedb img](./public/images/movie-tv-trending.png);
-    * ![themoviedb img](./public/images/popup.jpg);
+    * ![themoviedb img](./public/images/movie-tv-trending.png)
+    * ![themoviedb img](./public/images/popup.jpg)
 
 
 
