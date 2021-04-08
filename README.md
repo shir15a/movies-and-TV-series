@@ -12,6 +12,7 @@
     * Axios && web API's
 
 * API: 
-![Optional Text](./public/images/movieAPI);
 
+![Optional Text](./public/images/movieAPI);
+[MOVIES AND TV SERIES](https://developers.themoviedb.org/3/getting-started/introduction "https://developers.themoviedb.org/3/getting-started/introduction")
 
