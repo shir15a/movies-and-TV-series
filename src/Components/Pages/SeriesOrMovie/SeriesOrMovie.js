@@ -23,6 +23,8 @@ function Movies(props) {
     const [selectedSeries, setSelectedSeries] = useState({}) // for popUp
 
     useEffect(() => {
+        window.scroll(0, 0);
+
         let source = axios.CancelToken.source();
         const loadData = async () => {
             try {
