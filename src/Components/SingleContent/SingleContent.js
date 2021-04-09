@@ -18,3 +18,4 @@ function SingleContent({ id, title, media_type, poster, date, vote_average, onSe
 }
 
 export default SingleContent
+

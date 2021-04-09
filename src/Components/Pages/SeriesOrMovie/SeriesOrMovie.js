@@ -58,6 +58,8 @@ function Movies(props) {
         };
     }, [pageMovie, pageSeries, genreforURL, props.type]);
 
+    console.log('selectedSeries', selectedSeries);
+
     if (content.length > 0) {
         return (
             <div>

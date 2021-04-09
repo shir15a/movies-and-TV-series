@@ -15,13 +15,14 @@ function MyFav() {
     useEffect(() => {
         window.scroll(0, 0);
     }, [])
+    
     return (
         <div>
             {localDataArr.length === 0 &&
-             <div className='no-fav'><p>You dont have any favorite movies yet</p>
-             <p className='animated-popcorn'><img src={'https://www.animatedimages.org/data/media/1692/animated-popcorn-image-0007.gif'}></img></p>
-             </div>
-             }
+                <div className='no-fav'><p>There are no favorites yet</p>
+                    <p className='animated-popcorn'><img src={'https://www.animatedimages.org/data/media/1692/animated-popcorn-image-0007.gif'}></img></p>
+                </div>
+            }
             {localDataArr.length > 0 && <div className='page-items'>
                 {localDataArr.map((item) => {
                     return <SingleContent key={item.id}
