@@ -1,8 +1,8 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import { getAllLocalData } from '../../../LocalStorage/LocalStorage'
 import SingleContent from '../../SingleContent/SingleContent';
 import PopUp from "../../PopUp/PopUp";
-import  "./MyFav.css";
+import "./MyFav.css";
 
 
 function MyFav() {
@@ -14,7 +14,7 @@ function MyFav() {
 
     return (
         <div>
-            {localDataArr.length> 0 && <div className='page-items'>
+            {localDataArr.length > 0 && <div className='page-items'>
                 {localDataArr.map((item) => {
                     return <SingleContent key={item.id}
                         id={item.id}
@@ -30,6 +30,7 @@ function MyFav() {
                 })}
 
                 <PopUp
+                    media_type={selectedSeries.release_date ? 'movie' : 'tv'}
                     id={selectedSeries.id}
                     display={display}
                     setDisplay={(value) => setDisplay(value)}>
