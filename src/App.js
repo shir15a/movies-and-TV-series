@@ -28,7 +28,6 @@ function App() {
       <div className='app'>
         <Container>
           <Switch >
-            {/* <Route path='/' component={Trending} exact /> */}
             <Route path='/' component={Trending} exact />
             <Route path='/series' children={<SeriesOrMovie type='TV series' />} />
             <Route path='/movies' children={<SeriesOrMovie type='movies' />} />

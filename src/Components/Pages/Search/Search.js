@@ -31,7 +31,7 @@ export default function Search() {
                 include_adult: false
             }
         })
-        console.log(data, 'data');
+        // console.log(data, 'data');
         setContent(data.results);
         setNumOfPages(data.total_pages);
     };
@@ -42,6 +42,7 @@ export default function Search() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [type, page]);
 
+    console.log(selectedSeries, 'selectedSeries');
     return (
         <div>
             <span className="pageTitle">Search</span>
@@ -74,7 +75,7 @@ export default function Search() {
 
                         />
                     ))}
-                <PopUp media_type={selectedSeries.type === 'movies' ? 'movie' : 'tv'}
+                <PopUp media_type={selectedSeries.release_date ? 'movie' : 'tv'}
                     id={selectedSeries.id}
                     display={display}
                     setDisplay={(value) => setDisplay(value)}>

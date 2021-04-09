@@ -29,30 +29,55 @@ export default function PopUp({ display, setDisplay, children, media_type, id })
 
     // inFav -> true or false
 
-    useEffect(() => {
-        let source = axios.CancelToken.source();
-        const loadData = async () => {
-            try {
-                const respone = await axios.get(`https://api.themoviedb.org/3/${media_type}/${id}?api_key=${REACT_APP_API_KEY}&language=en-US`, { cancelToken: source.token });
-                const videoEndPoint = await axios.get(
-                    `https://api.themoviedb.org/3/${media_type}/${id}/videos?api_key=${REACT_APP_API_KEY}&language=en-US`
-                );
-                setVideo(videoEndPoint.data.results[0]?.key)
-                setContent(respone.data);
-            }
-            catch (error) {
-                if (axios.isCancel(error)) {
-                    console.log('caught cancel');
-                } else {
-                    throw error;
-                }
-            }
-        };
-        loadData();
-        return () => {
-            source.cancel()
-        };
-    }, [content, id, media_type]);
+    const fetchData = async () => {
+        const { data } = await axios.get(
+          `https://api.themoviedb.org/3/${media_type}/${id}?api_key=${REACT_APP_API_KEY}&language=en-US`
+        );
+        // console.log(data,'data from CM');
+    
+        setContent(data);
+        // console.log(data);
+      };
+    
+      const fetchVideo = async () => {
+        const { data } = await axios.get(
+          `https://api.themoviedb.org/3/${media_type}/${id}/videos?api_key=${REACT_APP_API_KEY}&language=en-US`
+        );
+    
+        setVideo(data.results[0]?.key);
+      };
+    
+      useEffect(() => {
+        fetchData();
+        fetchVideo();
+        // eslint-disable-next-line
+      }, [content, id, media_type]);
+
+    // useEffect(() => {
+    //     let source = axios.CancelToken.source();
+    //     const loadData = async () => {
+    //         try {
+    //             const respone = await axios.get(`https://api.themoviedb.org/3/${media_type}/${id}?api_key=${REACT_APP_API_KEY}&language=en-US`, { cancelToken: source.token });
+    //             console.log(respone,"respone");
+    //             const videoEndPoint = await axios.get(
+    //                 `https://api.themoviedb.org/3/${media_type}/${id}/videos?api_key=${REACT_APP_API_KEY}&language=en-US`
+    //             );
+    //             setVideo(videoEndPoint.data.results[0]?.key)
+    //             setContent(respone.data);
+    //         }
+    //         catch (error) {
+    //             if (axios.isCancel(error)) {
+    //                 console.log('caught cancel');
+    //             } else {
+    //                 throw error;
+    //             }
+    //         }
+    //     };
+    //     loadData();
+    //     return () => {
+    //         source.cancel()
+    //     };
+    // }, [content, id, media_type]);
 
     const onLikeClick = () => {
         addEventToLocal(content);
