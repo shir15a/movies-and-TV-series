@@ -11,7 +11,7 @@
     * React-Ruter
     * Purely functional components ( useState, useEffect)
     * Material-UI
-    * Axios && web API's
+    * Axios & web API's
 
 * API: 
 
